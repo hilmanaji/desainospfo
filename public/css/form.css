@@ -1,0 +1,80 @@
+.side-form{
+  max-width: 50%;
+  padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+
+.gaya-form{
+  display: block;
+	max-width: 80%;
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+
+.gaya-form label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+.gaya-form label > span{
+	width: 150px;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
+}
+.gaya-form span.required{
+	color:red;
+}
+
+.gaya-form input.input-text, .gaya-form .select-field{
+	width: 60%;	
+}
+
+.gaya-form input.input-text,
+.gaya-form .textarea-field, 
+ .gaya-form .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+
+.gaya-form .input-text:focus, , 
+.gaya-form .textarea-field:focus,  
+.gaya-form .select-field:focus{
+	border: 1px solid #e01b1b;
+}
+
+.gaya-form .textarea-field{
+	height:100px;
+	width: 55%;
+}
+
+.gaya-form input[type=submit],
+.gaya-form input[type=button],
+.gaya-form input[type=image]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #e01b1b;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.gaya-form input[type=submit]:hover,
+.gaya-form input[type=button]:hover,
+.gaya-form input[type=image]:hover{
+	background: #690c0c;
+	color: #fff;
+}
+
