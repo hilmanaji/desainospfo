@@ -2,9 +2,9 @@
 
 class Dashboard extends Controller {
 	public function __construct(){
-		if(!isset($_SESSION["username"]))  {  
-			header('Location: ' . BASEURL . '/login/index');  
-		}
+		// if(!isset($_SESSION["username"]))  {  
+		// 	header('Location: ' . BASEURL . '/login/index');  
+		// }
 		
 	}
 	
