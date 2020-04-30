@@ -1,7 +1,7 @@
 <?php
 
 // Ganti URL Ketika berpindah server/folder/hosting/domain
-define('BASEURL', 'http://localhost/designfttx/public');
+define('BASEURL', 'http://localhost/desainospfo/public');
 
 // Database config
 define('DB_HOST', 'localhost');
