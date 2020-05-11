@@ -23,7 +23,7 @@ class Pesan extends Controller {
     }
 
     public function buatPesan () {
-        $data['judul'] = 'Buat Pesan';
+        $data['judul'] = 'Pesan';
         $data['sub_judul'] = 'Kirim Pesan Baru';
         $data['data_pengguna'] = $this->model('DataHandle')->getAllByAsc($table = 'tbl_pengguna', $orderBy = 'nama');
 		

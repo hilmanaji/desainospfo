@@ -1,6 +1,6 @@
 
 <div class="judul">
-    <h4>Setting / <a href="<?= BASEURL; ?>/user/index"><?= $data['judul'] ?></a></h4>
+    <h4><a href="<?= BASEURL; ?>/pengguna/index"><?= $data['judul'] ?></a></h4>
 </div>
 <div class="head-table">
     <h4><?= $data['sub_judul'] ?></h4>

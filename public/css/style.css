@@ -35,21 +35,51 @@ body{
 .fl-table td {
     border-right: 1px solid #f8f8f8;
     font-size: 14px;
+    word-break: break-all;
 }
 
 .fl-table thead th {
-    color: #ffffff;
-    background: #109fca;
+    color: #000000;
+    background: #63b1c9;
 }
 
 
 .fl-table thead th:nth-child(odd) {
-    color: #ffffff;
-    background: #109fca;
+    color: #000000;
+    background: #63b1c9;
 }
 
 .fl-table tr:nth-child(even) {
     background: #e0dfdf;
+}
+
+.fl-table tr:hover {
+    background: #4fd5da;
+}
+
+#myTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-weight: normal;
+    width: 100%;
+  }
+  
+  #myTable td, #myTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #myTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #myTable tr:hover {background-color: #4fd5da;}
+  
+  #myTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #63b1c9;
+    color: #000000;
 }
 
 /* Responsive */
@@ -183,7 +213,7 @@ td a:link {
     display: inline-block;
     background-color: #db2727;
     color: #FFFFFF;
-    padding: 10px 15px;
+    padding: 5px 10px;
     transition: background .3s;
     border-radius: 4px;
 }
@@ -340,4 +370,30 @@ div .CssUpdate {
     background-color: #109fca;
     color: white;
   }
+  
+#myInput {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 25%;
+    font-size: 14px;
+    padding: 11px 19px 11px 15px;
+    border: 0.5px solid #505050;
+    margin-bottom: 12px;
+}
+
+#optionFilter {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 190px;
+    font-size: 14px;
+    padding: 10px 19px 10px 5px;
+    border: 0.5px solid #505050;
+    margin-bottom: 12px
+}
+
+.search-area a:hover {
+    background-color: #109fca;
+    color: white;
+}
+
   

@@ -9,18 +9,20 @@
         <?php Flasher::flash(); ?>
         <form action="">
             <a href="<?= BASEURL; ?>/Pengguna/tambahData">Tambah Data</a>
-        
-            <span>Cari :</span>
-            <input type="text" value="" name="" placeholder="Cari Data"> 
-            <input type="submit" value="Cari" class="tombol">
+            <select id="optionFilter"" name="optionFilter">
+                <option value="1">NIK</option>
+                <option value="2">Nama Karyawan</option>
+            </select>
+            <input type="text" id="myInput" onkeyup="cari()" placeholder="Masukan Pencarian" title="Ketik disini">
         </form>    
     </div>
     <!-- ini bagian judul -->
     <div class="table-wrapper">
-        <table class="fl-table">
+        <table id="myTable" class="fl-table">
             <thead>
             <tr>
                 <th>No</th>
+                <th>NIK</th>
                 <th>Nama Lengkap</th>
                 <th>Jenis Kelamin</th>
                 <th>Username</th>
@@ -38,6 +40,7 @@
             <?php foreach ( $data['data_pengguna'] as $pengguna ) : ?>
             <tr>
                 <td><?= $no++; ?></td>
+                <td><?= $pengguna['nik'] ?></td>
                 <td><?= $pengguna['nama'] ?></td>
                 <td><?= $pengguna['jk'] ?></td>
                 <td><?= $pengguna['username'] ?></td>
@@ -47,8 +50,8 @@
                 <td><?= $pengguna['no_hp'] ?></td>
                 <td><?= $pengguna['email'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/pengguna/getUbah/<?= $pengguna['nik'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/pengguna/hapus/<?= $pengguna['nik'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <a title="Ubah Data" href="<?= BASEURL; ?>/pengguna/getUbah/<?= $pengguna['nik'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                    <a title="Hapus Data" href="<?= BASEURL; ?>/pengguna/hapus/<?= $pengguna['nik'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -56,4 +59,27 @@
         </table>
     </div>
 </div>
+
+<script>
+function cari() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    v = parseInt(document.getElementById("optionFilter").value);
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[v];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }       
+  }
+}
+
+</script>
 

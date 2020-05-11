@@ -24,7 +24,7 @@ class Pengguna extends Controller {
     }
 
     public function tambahData() {
-		$data['judul'] = 'User';
+		$data['judul'] = 'Pengguna';
 		$data['sub_judul'] = 'Tambah Pengguna';
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
@@ -62,7 +62,7 @@ class Pengguna extends Controller {
 		$data['data_pengguna'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_pengguna',$id_table = 'nik', $id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
-		$this->view('pengguna/v_ubah_user', $data);
+		$this->view('pengguna/v_ubah_pengguna', $data);
 		$this->view('templates/footer');
 	}
 	
