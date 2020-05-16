@@ -25,7 +25,7 @@ class Project extends Controller {
 		$this->view('templates/footer');
 	}
 
-    public function tambah() {
+    public function simpan() {
 		if( $this->model('DataHandle')->tambahDataProject($_POST) > 0) {
 			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/project/index');

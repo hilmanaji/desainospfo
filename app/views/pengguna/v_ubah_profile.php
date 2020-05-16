@@ -1,4 +1,3 @@
-
 <div class="judul">
     <h4>Setting / <a href="<?= BASEURL; ?>/user/index"><?= $data['judul'] ?></a></h4>
 </div>
@@ -20,6 +19,7 @@
                 <label for="jk">
                     <span>JENIS KELAMIN</span>
                     <select name="jk" class="select-field">
+                        <option value="<?= $data['data_pengguna']['jk'] ?>"><?php if ($data['data_pengguna']['jk'] == "L") { echo "Laki - Laki";} else { echo "Perempuan";} ?></option>
                         <option value="L">Laki - laki</option>
                         <option value="P">Perempuan</option>
                     </select>
@@ -40,17 +40,18 @@
                     <span>USERNAME<span class="required">*</span></span>
                     <input type="text" class="input-text" name="username" value="<?= $data['data_pengguna']['username'] ?>" required/>
                 </label>
-                <label for="pass">
+                <!-- <label for="pass">
                     <span>PASSWORD<span class="required">*</span></span>
                     <input type="password" class="input-text" name="pass" value="<?= $data['data_pengguna']['password'] ?>" required/>
-                </label>
+                </label> -->
                 <input type="hidden" class="input-text" name="role_user" value="<?= $data['data_pengguna']['role_user'] ?>" required/>
                 <label for="no_hp">
                     <span>NO HANDPHONE<span class="required">*</span></span>
                     <input type="number" class="input-text" name="no_hp" value="<?= $data['data_pengguna']['no_hp'] ?>" required/>
                 </label>
                 
-                <label><span> </span><input type="submit" value="SIMPAN" /></label>
+                <label><span> </span><input type="submit" value="SIMPAN" ><a href="<?= BASEURL; ?>/Pengguna/detilProfile/<?= $data['data_pengguna']['nik'] ?>">KEMBALI</a></label>
+                
             </form>
         </div>
     </div>

@@ -8,7 +8,7 @@
 <div class="data-table">
     <div class="navigasi">
         <div class="gaya-form">
-            <form action="<?= BASEURL; ?>/Pengguna/tambah/" method="post">
+            <form action="<?= BASEURL; ?>/Pengguna/simpan/" method="post">
                 <label for="nik">
                     <span>NIK<span class="required">*</span></span>
                     <input type="text" class="input-text" name="nik" value="" required/>

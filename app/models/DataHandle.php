@@ -53,6 +53,18 @@ class DataHandle {
         return $this->db->rowCount();               
     }
 
+    public function cekPassLama($data){
+        $query = "SELECT * FROM tbl_pengguna WHERE nik = :nik AND pass = :pass";
+
+        $this->db->query($query);
+        $this->db->bind('nik', $data['nik']);
+		$this->db->bind('pass', $data['pass_lama']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();               
+    }
+
     public function getDataLogin($data){
         $this->db->query('SELECT * FROM tbl_pengguna WHERE username = :username AND pass = :pass');
         $this->db->bind('username', $data['username']);
@@ -114,6 +126,18 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
+    public function ubahPassword($data) {
+        $query = "UPDATE tbl_pengguna SET pass = :pass WHERE nik = :nik";
+        
+        $this->db->query($query);
+        $this->db->bind('nik', $data['nik']);
+        $this->db->bind('pass',$data['pass_baru']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     // Spesifik Query Pesan
     public function getPesanMasuk($table, $id_table, $id, $orderBy) {
         //$this->db->query('SELECT id_pesan, nik_pengirim, nama, subjek, tgl_kirim FROM ' . $table . 'INNER JOIN tbl_pengguna ON  nik_pengirim = nik WHERE ' . $id_table . '= :id AND status_penerima=1 ORDER BY '. $orderBy .' DESC ');
@@ -132,6 +156,7 @@ class DataHandle {
         $this->db->bind('id', $id);
         return $this->db->resultSet();
     }
+    
     public function kirimkanPesan($data) {
         $query = "INSERT INTO tbl_pesan VALUES ('', :nik_pengirim, :nik_penerima, :subjek, :pesan,'', :status_pengirim, :status_penerima)";
 
@@ -178,6 +203,27 @@ class DataHandle {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+
+    //Spesifik Query Design OSP
+    public function getDetailDesign($id) {
+        $this->db->query('SELECT
+        tbl_design_osp.id_design,
+        tbl_design_osp.id_project,
+        tbl_design_osp.segment,
+        tbl_design_osp.designator,
+        tbl_design_osp.volume,
+        tbl_lom.`desc`,
+        tbl_lom.satuan
+        FROM
+        tbl_design_osp
+        INNER JOIN tbl_lom ON tbl_design_osp.designator = tbl_lom.designator
+        WHERE
+        tbl_design_osp.id_project =:id;');
+
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
+    }
+
 
     
 

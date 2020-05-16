@@ -1,0 +1,61 @@
+<div class="judul">
+    <h4>Setting / <a href="<?= BASEURL; ?>/user/index"><?= $data['judul'] ?></a></h4>
+</div>
+<div class="head-table">
+    <h4><?= $data['sub_judul'] ?></h4>
+</div>
+<div class="data-table">
+    <div class="navigasi">
+    <?php Flasher::flash(); ?>
+        <div class="gaya-form">
+            <form action="<?= BASEURL; ?>/Pengguna/ubahProfile/<?= $data['data_pengguna']['nik'] ?>" method="post">
+                <label for="nama">
+                    <span>NIK<span class="required">*</span></span>
+                    <input type="text" class="input-text" name="nik" value="<?= $data['data_pengguna']['nik'] ?>" disabled/>
+                </label>
+                <label for="nama">
+                    <span>NAMA LENGKAP<span class="required">*</span></span>
+                    <input type="text" class="input-text" name="nama" value="<?= $data['data_pengguna']['nama'] ?>" disabled/>
+                </label>
+                <label for="jk">
+                    <span>JENIS KELAMIN</span>
+                    <select name="jk" class="select-field" disabled>
+                        <option value="<?= $data['data_pengguna']['jk'] ?>"><?php if ($data['data_pengguna']['jk'] == "L") { echo "Laki - Laki";} else { echo "Perempuan";} ?></option>
+                        <option value="L">Laki - laki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
+                </label>
+                <label for="unit">
+                    <span>UNIT<span class="disabled">*</span></span>
+                    <input type="text" class="input-text" name="unit" value="<?= $data['data_pengguna']['unit'] ?>" disabled/>
+                </label>
+                <label for="jabatan">
+                    <span>JABATAN<span class="disabled">*</span></span>
+                    <input type="text" class="input-text" name="jabatan" value="<?= $data['data_pengguna']['jabatan'] ?>" disabled/>
+                </label>
+                <label for="email">
+                    <span>EMAIL<span class="disabled">*</span></span>
+                    <input type="email" class="input-text" name="email" value="<?= $data['data_pengguna']['email'] ?>" disabled/>
+                </label>
+                <label for="username">
+                    <span>USERNAME<span class="disabled">*</span></span>
+                    <input type="text" class="input-text" name="username" value="<?= $data['data_pengguna']['username'] ?>" disabled/>
+                </label>
+                <!-- <label for="pass">
+                    <span>PASSWORD<span class="disabled">*</span></span>
+                    <input type="password" class="input-text" name="pass" value="<?= $data['data_pengguna']['password'] ?>" disabled/>
+                </label> -->
+                <input type="hidden" class="input-text" name="role_user" value="<?= $data['data_pengguna']['role_user'] ?>" disabled/>
+                <label for="no_hp">
+                    <span>NO HANDPHONE<span class="disabled">*</span></span>
+                    <input type="number" class="input-text" name="no_hp" value="<?= $data['data_pengguna']['no_hp'] ?>" disabled/>
+                </label>
+                
+                <label><span> </span><input type="submit" value="UBAH DATA"><a href="<?= BASEURL; ?>/Pengguna/ubahPass/<?= $data['data_pengguna']['nik'] ?>">UBAH PASSWORD</a></label>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+

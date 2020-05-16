@@ -8,7 +8,7 @@
 <div class="data-table">
     <div class="navigasi">
         <div class="gaya-form">
-            <form action="<?= BASEURL; ?>/Project/tambah/" method="post">
+            <form action="<?= BASEURL; ?>/Project/simpan/" method="post">
                 <label for="id_project">
                     <span>ID PROJECT<span class="required">*</span></span>
                     <input type="text" class="input-text" name="id_project" value="" required/>

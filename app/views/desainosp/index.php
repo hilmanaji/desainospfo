@@ -55,8 +55,7 @@
                 <td><?= $project['sto'] ?></td>
                 <td><?= $project['odc'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/project/getUbah/<?= $project['id_project'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/project/hapus/<?= $project['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <a href="<?= BASEURL; ?>/DesainOSP/detailDesign/<?= $project['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

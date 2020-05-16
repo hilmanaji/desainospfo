@@ -35,7 +35,7 @@ class Login extends Controller {
 
 			
 			//$this->view('dashboard/index', $data_user);
-			header('Location: ' . BASEURL . '/dashboard/index');
+			header('Location: ' . BASEURL . '/Pengguna/detilProfile/' . $_SESSION['nik'] .'');
 		
 		} else {
 			//echo "ehy";

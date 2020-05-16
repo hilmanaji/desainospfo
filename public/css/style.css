@@ -184,7 +184,7 @@ body{
     background: #ffffff;
     border: 0.5px solid #b6b2b2;
     border-radius: 3px;
-    padding-left: 5px;  
+    padding-left: 0px;  
 }
 
 .head-table {
@@ -229,7 +229,7 @@ td a:hover {
     display: inline-block;
     background-color: #db2727;
     color: #FFFFFF;
-    padding: 10px 15px;
+    padding: 8px 10px;
     transition: background .3s;
     border-radius: 4px;
     margin-left: 10px;
@@ -241,6 +241,10 @@ td a:hover {
 }
 .navigasi a:hover {
 	background-color: #6e2222;
+}
+
+.navigasi .pencarian {
+    padding: 10px 15px;
 }
 
 .judul a {
@@ -395,5 +399,51 @@ div .CssUpdate {
     background-color: #109fca;
     color: white;
 }
+
+.grid-project {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #109fca;
+    color: #FFFFFF;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
 
   
