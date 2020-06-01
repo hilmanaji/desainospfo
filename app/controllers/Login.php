@@ -25,9 +25,8 @@ class Login extends Controller {
 		if( $this->model('DataHandle')->cekDataLogin($post) > 0) {
 			
 			//$id_mitra = $data['user']['id_mitra'];
-
 			//$data_mitra['mitra'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_mitra', $id_table = 'id_mitra', $id_mitra);
-			
+	
 			$_SESSION['nik'] = $data['pengguna']['nik'];
 			$_SESSION['nama'] = $data['pengguna']['nama'];
 			$_SESSION['username'] = $data['pengguna']['username'];

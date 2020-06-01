@@ -82,6 +82,31 @@ body{
     color: #000000;
 }
 
+#myTable2 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-weight: normal;
+    width: 100%;
+  }
+  
+  #myTable2 td, #myTable2 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #myTable2 tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #myTable2 tr:hover {background-color: #4fd5da;}
+  
+  #myTable2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #63b1c9;
+    color: #000000;
+}
+
 /* Responsive */
 
 @media (max-width: 767px) {
@@ -196,6 +221,17 @@ body{
     color: #252525;
     border-radius: 3px;
     padding: 15px 10px 15px 10px;
+}
+
+.head-chat {
+    margin-top: 0px;
+    width: 100%;
+    background: #ffffff;
+    border: 0.5px solid #b6b2b2;
+    color: #252525;
+    border-radius: 3px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
 }
 
 pesan-masuk {
@@ -316,8 +352,8 @@ div .CssUpdate {
 }
 
 .update-progres {
-    width: 50px;
-    height: 45px;
+    width: 45px;
+    height: 40px;
     background: #c0392b;
     padding: 8px 10px 8px 10px;
     border-radius: 5px;
@@ -369,6 +405,11 @@ div .CssUpdate {
     background-color: #a70e0e;
     color: white; 
   }
+
+  .sidebar a.penerimaObrolan {
+    background-color: #a8a7a7;
+    color: white; 
+  }
   
   .sidebar a:hover:not(.active) {
     background-color: #109fca;
@@ -384,6 +425,7 @@ div .CssUpdate {
     border: 0.5px solid #505050;
     margin-bottom: 12px;
 }
+
 
 #optionFilter {
     background-position: 10px 10px;
@@ -446,4 +488,71 @@ div .CssUpdate {
     border-top: none;
   }
 
+#cariObrolan {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 11px 19px 11px 15px;
+    border: 0.5px solid #505050;
+    margin-bottom: 12px;
+}
+
+#inputObrolan {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 85%;
+    font-size: 14px;
+    padding: 11px 19px 11px 15px;
+    border: 0.5px solid #505050;
+    margin-bottom: 12px;
+}
+
+#div_chat {
+    height: 550px;
+    width: 100%;
+    overflow: auto;
+    background-color: #dcdcdc80;
+    border: 0.5px solid #b6b2b2;
+    margin: 12px 0;
+    padding: 10px;
+}
+
+input[type=button] {
+	border: none;
+	padding: 12px 15px 12px 15px;
+	background: #e01b1b;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+
+input[type=button]:hover {
+	background: #690c0c;
+	color: #fff;
+}
+
+
+.selectOption {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 19px 10px 5px;
+    border: 0.5px solid #505050;
+}
+
+
+.selectDesignator {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 19px 10px 5px;
+    border: 0.5px solid #505050;
+}
   

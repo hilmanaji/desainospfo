@@ -24,7 +24,7 @@
                     <input type="password" class="input-text" name="conf_pass_baru" value="" required/>
                 </label>
                 
-                <label><span> </span><input type="submit" value="SIMPAN" /></label>
+                <label><span> </span><input type="submit" value="SIMPAN" /><a href="<?= BASEURL; ?>/Pengguna/detilProfile/<?= $data['data_pengguna']['nik'] ?>">KEMBALI</a></label>
             </form>
         </div>
     </div>
