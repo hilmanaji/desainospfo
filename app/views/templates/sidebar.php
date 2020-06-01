@@ -1,7 +1,7 @@
 <section id="sideMenu">
     <button class="closebtn" onclick="closeNav()"><</button>
     <div class="logo-app">
-        <img src="<?= BASEURL;?>/img/logo-ta.png" alt="" width="150" heigth="150">
+        <img src="<?= BASEURL;?>/img/logo-fa.png" alt="" width="150" heigth="150">
     </div>
     <nav>
         <?php
@@ -12,9 +12,9 @@
             <a href="<?= BASEURL;?>/Project/index" <?php if($halaman == "Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/project.png" alt="" width="20" heigth="20">&nbsp Data Project</a>
             <a href="<?= BASEURL;?>/ListOfMaterial/index" <?php if($halaman == "List Material") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/mitra.png" alt="" width="20" heigth="20">&nbsp Data List Material</a>
             <a href="<?= BASEURL;?>/DesainOSP/index" <?php if($halaman == "Design OSP FO") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/desain.png" alt="" width="20" heigth="20">&nbsp Data Design OSP FO</a>
-            <a href="<?= BASEURL;?>/Validasi/index" <?php if($halaman == "") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/status.png" alt="" width="20" heigth="20">&nbsp Validasi Design OSP FO</a>
+            <a href="<?= BASEURL;?>/Validasi/index" <?php if($halaman == "Validasi Pengetahuan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/status.png" alt="" width="20" heigth="20">&nbsp Validasi Pengetahuan</a>
             <a href="<?= BASEURL;?>/Pengguna/index" <?php if($halaman == "Pengguna") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/users.png" alt="" width="20" heigth="20">&nbsp Data Pengguna</a>
-            <a href="<?= BASEURL;?>/Berkas/index" <?php if($halaman == "Modul Pengetahuan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/users.png" alt="" width="20" heigth="20">&nbsp Modul Pengetahuan</a>
+            <a href="<?= BASEURL;?>/Berkas/index/<?= $_SESSION['nik'] ?>" <?php if($halaman == "Modul Pengetahuan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/users.png" alt="" width="20" heigth="20">&nbsp Modul Pengetahuan</a>
                                
         <?php }
         // Role User Admin Mitra

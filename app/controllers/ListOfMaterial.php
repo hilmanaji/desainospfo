@@ -2,7 +2,9 @@
 
 class ListOfMaterial extends Controller {
     public function __construct(){
-		
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}	
 	}
 
     public function index() {
@@ -38,12 +40,12 @@ class ListOfMaterial extends Controller {
 	}
 
 	public function hapus($id) {
-		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_lom', $id_table = 'designator') > 0) {
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_lom', $id_table = 'id_lom') > 0) {
 			Flasher::setFlash('Berhasil','dihapus','CssTambah');
 			header('Location: ' . BASEURL . '/ListOfMaterial/index');
 			exit;
 		} else {
-			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
+			Flasher::setFlash('Gagal','dihapus','CssHapus');
 			header('Location: ' . BASEURL . '/ListOfMaterial/index');
 			exit;
 		}
@@ -52,7 +54,7 @@ class ListOfMaterial extends Controller {
 	public function getUbah($id){
 		$data['judul'] = 'List Material';
 		$data['sub_judul'] = 'Ubah Data List Material';
-		$data['data_project'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_lom',$id_table = 'designator', $id);
+		$data['data_lom'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_lom',$id_table = 'id_lom', $id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('list_material/v_ubah_material', $data);

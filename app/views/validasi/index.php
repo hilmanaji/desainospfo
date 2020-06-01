@@ -6,8 +6,8 @@
 </div>
 <div class="data-table">
     <div class="tab">
-        <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'List')">List Modul Pengetahuan</button>
-        <button class="tablinks" onclick="openTab(event, 'Listku')">Tambah Modul Pengetahuan</button>
+        <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'List')">List Modul Belum Validasi</button>
+        <button class="tablinks" onclick="openTab(event, 'Listku')">List Design Belum Validasi</button>
     </div>
 
     <div id="List" class="tabcontent">
@@ -31,6 +31,7 @@
                     <th>Judul Pengetahuan</th>
                     <th>Stream</th>
                     <th>Deskripsi</th>
+                    <th>Status</th>
                     <th width="100px">ACTION</th>
                 </tr>
                 </thead>
@@ -43,8 +44,11 @@
                     <td><?= $berkas['judul'] ?></td>
                     <td><?= $berkas['stream'] ?></td>
                     <td><?= $berkas['deskripsi'] ?></td>
+                    <td><?= $berkas['status'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>">LIHAT</a>
+                        <a href="<?= BASEURL; ?>/Validasi/approveBerkas/<?= $berkas['id_berkas'] ?>" onClick="return confirm('Anda Yakin Akan Menyetujui untuk dirilis ?')">APPROVE</a>
+                        <a href="<?= BASEURL; ?>/Validasi/rejectBerkas/<?= $berkas['id_berkas'] ?>">REJECT</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -56,26 +60,29 @@
     <div id="Listku" class="tabcontent">
         <div class="navigasi">
             <?php Flasher::flash(); ?>
-            <form action="">
-                <a href="<?= BASEURL; ?>/Berkas/tambahData">Tambah Data</a>
+            <div class="pencarian">
                 <select id="optionFilter"" name="optionFilter">
                     <option value="1">Judul Pengetahuan</option>
                     <option value="2">Stream</option>
                     <option value="3">Deskripsi</option>
-                    <option value="4">Status</option>
                 </select>
                 <input type="text" id="myInput" onkeyup="cari()" placeholder="Masukan Pencarian" title="Ketik disini">
-            </form>     
+            </div>     
         </div>
         <!-- ini bagian judul -->
         <div class="table-wrapper">
             <table id="myTable" class="table-designator">
                 <thead>
                 <tr>
-                    <th width="50px">NO</th>
-                    <th>Judul Pengetahuan</th>
-                    <th>Stream</th>
-                    <th>Deskripsi</th>
+                    <th>NO</th>
+                    <th>ID Project</th>
+                    <th>Nama Design</th>
+                    <th>Jenis FTTx</th>
+                    <th>Jenis Project</th>
+                    <th>Lokasi Project</th>
+                    <th>Witel</th>
+                    <th>STO</th>
+                    <th>ODC</th>
                     <th>Status</th>
                     <th width="100px">ACTION</th>
                 </tr>
@@ -83,15 +90,22 @@
                 <tbody>
                 <?php
                 $no = 1; ?>
-                <?php foreach ( $data['data_berkasku'] as $berkas ) : ?>
+                <?php foreach ( $data['data_design'] as $design ) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $berkas['judul'] ?></td>
-                    <td><?= $berkas['stream'] ?></td>
-                    <td><?= $berkas['deskripsi'] ?></td>
-                    <td><?= $berkas['status'] ?></td>
+                    <td><?= $design['id_project'] ?></td>
+                    <td><?= $design['nama_desain'] ?></td>
+                    <td><?= $design['jenis_fttx'] ?></td>
+                    <td><?= $design['jenis_project'] ?></td>
+                    <td><?= $design['lokasi_project'] ?></td>
+                    <td><?= $design['witel'] ?></td>
+                    <td><?= $design['sto'] ?></td>
+                    <td><?= $design['odc'] ?></td>
+                    <td><?= $design['status'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/ListOfMaterial/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <a href="<?= BASEURL; ?>/Validasi/lihatDesign/<?= $design['id_project'] ?>">LIHAT</a>
+                        <a href="<?= BASEURL; ?>/Validasi/approveDesign/<?= $design['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menyetujui untuk dirilis ?')">APPROVE</a>
+                        <a href="<?= BASEURL; ?>/Validasi/rejectDesign/<?= $design['id_project'] ?>">REJECT</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
