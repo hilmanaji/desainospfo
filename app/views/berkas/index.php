@@ -12,12 +12,14 @@
 
     <div id="List" class="tabcontent">
         <div class="navigasi">
-            <?php Flasher::flash(); ?>
             <div class="pencarian">
                 <select id="optionFilter"" name="optionFilter">
-                    <option value="1">Judul Pengetahuan</option>
-                    <option value="2">Stream</option>
-                    <option value="3">Deskripsi</option>
+                    <option value="1">DESIGNATOR</option>
+                    <option value="2">URAIAN PEKERJAAN</option>
+                    <option value="3">SATUAN</option>
+                    <option value="4">JJENIS MATERIAL</option>
+                    <option value="5">JENIS ALPRO</option>
+                    <option value="6">JENIS PEKERJAAN</option>
                 </select>
                 <input type="text" id="myInput" onkeyup="cari()" placeholder="Masukan Pencarian" title="Ketik disini">
             </div>
@@ -27,24 +29,31 @@
             <table id="myTable" class="table-designator">
                 <thead>
                 <tr>
-                    <th width="50px">NO</th>
-                    <th>Judul Pengetahuan</th>
-                    <th>Stream</th>
-                    <th>Deskripsi</th>
+                    <th>NO</th>
+                    <th>DESIGNATOR</th>
+                    <th>URAIAN PEKERJAAN</th>
+                    <th>SATUAN</th>
+                    <th>JENIS MATERIAL</th>
+                    <th>JENIS ALPRO</th>
+                    <th>JENIS PEKERJAAN</th>
                     <th width="100px">ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                 $no = 1; ?>
-                <?php foreach ( $data['data_berkas'] as $berkas ) : ?>
+                <?php foreach ( $data['data_lom'] as $designator ) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $berkas['judul'] ?></td>
-                    <td><?= $berkas['stream'] ?></td>
-                    <td><?= $berkas['deskripsi'] ?></td>
+                    <td><?= $designator['designator'] ?></td>
+                    <td><?= $designator['desc'] ?></td>
+                    <td><?= $designator['satuan'] ?></td>
+                    <td><?= $designator['jenis_material'] ?></td>
+                    <td><?= $designator['jenis_alpro'] ?></td>
+                    <td><?= $designator['jenis_pekerjaan'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <a href="<?= BASEURL; ?>/ListOfMaterial/getUbah/<?= $designator['designator'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/ListOfMaterial/hapus/<?= $designator['designator'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -57,12 +66,14 @@
         <div class="navigasi">
             <?php Flasher::flash(); ?>
             <form action="">
-                <a href="<?= BASEURL; ?>/Berkas/tambahData">Tambah Data</a>
+                <a href="<?= BASEURL; ?>/ListOfMaterial/tambahData">Tambah Data</a>
                 <select id="optionFilter"" name="optionFilter">
-                    <option value="1">Judul Pengetahuan</option>
-                    <option value="2">Stream</option>
-                    <option value="3">Deskripsi</option>
-                    <option value="4">Status</option>
+                    <option value="1">DESIGNATOR</option>
+                    <option value="2">URAIAN PEKERJAAN</option>
+                    <option value="3">SATUAN</option>
+                    <option value="4">JJENIS MATERIAL</option>
+                    <option value="5">JENIS ALPRO</option>
+                    <option value="6">JENIS PEKERJAAN</option>
                 </select>
                 <input type="text" id="myInput" onkeyup="cari()" placeholder="Masukan Pencarian" title="Ketik disini">
             </form>     
@@ -72,26 +83,31 @@
             <table id="myTable" class="table-designator">
                 <thead>
                 <tr>
-                    <th width="50px">NO</th>
-                    <th>Judul Pengetahuan</th>
-                    <th>Stream</th>
-                    <th>Deskripsi</th>
-                    <th>Status</th>
+                    <th>NO</th>
+                    <th>DESIGNATOR</th>
+                    <th>URAIAN PEKERJAAN</th>
+                    <th>SATUAN</th>
+                    <th>JENIS MATERIAL</th>
+                    <th>JENIS ALPRO</th>
+                    <th>JENIS PEKERJAAN</th>
                     <th width="100px">ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                 $no = 1; ?>
-                <?php foreach ( $data['data_berkasku'] as $berkas ) : ?>
+                <?php foreach ( $data['data_lom'] as $designator ) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $berkas['judul'] ?></td>
-                    <td><?= $berkas['stream'] ?></td>
-                    <td><?= $berkas['deskripsi'] ?></td>
-                    <td><?= $berkas['status'] ?></td>
+                    <td><?= $designator['designator'] ?></td>
+                    <td><?= $designator['desc'] ?></td>
+                    <td><?= $designator['satuan'] ?></td>
+                    <td><?= $designator['jenis_material'] ?></td>
+                    <td><?= $designator['jenis_alpro'] ?></td>
+                    <td><?= $designator['jenis_pekerjaan'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/ListOfMaterial/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <a href="<?= BASEURL; ?>/ListOfMaterial/getUbah/<?= $designator['designator'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/ListOfMaterial/hapus/<?= $designator['designator'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -123,7 +139,7 @@ function cari() {
       }
 }
 
-function openTab(evt, namaTab) {
+function openTab(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -133,7 +149,7 @@ function openTab(evt, namaTab) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(namaTab).style.display = "block";
+  document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 

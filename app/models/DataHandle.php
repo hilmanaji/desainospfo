@@ -84,80 +84,7 @@ class DataHandle {
     }
     // End General Query
 
-    //Spesifik Query Project
-    public function tambahDataProject($data){
-        $query = "INSERT INTO tbl_project VALUES (:id_project, :nama_desain, :jenis_fttx, :jenis_project, :lokasi_project, :witel, :sto, :odc, :status)";
-
-        $this->db->query($query);
-        $this->db->bind('id_project', $data['id_project']);
-        $this->db->bind('nama_desain', $data['nama_desain']);
-        $this->db->bind('jenis_fttx', $data['jenis_fttx']);
-        $this->db->bind('jenis_project', $data['jenis_project']);
-        $this->db->bind('lokasi_project', $data['lokasi_project']);
-        $this->db->bind('witel', $data['witel']);
-        $this->db->bind('sto', $data['sto']);
-        $this->db->bind('odc', $data['odc']);
-        $this->db->bind('status', $data['status']);
-
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    public function ubahDataProject($data){
-        $query = "UPDATE tbl_project SET nama_desain = :nama_desain, jenis_fttx = :jenis_fttx, jenis_project = :jenis_project, lokasi_project = :lokasi_project, witel = :witel, sto = :sto, odc = :odc WHERE id_project = :id_project";
-        
-        $this->db->query($query);
-        $this->db->bind('id_project', $data['id_project']);
-        $this->db->bind('nama_desain', $data['nama_desain']);
-        $this->db->bind('jenis_fttx', $data['jenis_fttx']);
-        $this->db->bind('jenis_project', $data['jenis_project']);
-        $this->db->bind('lokasi_project', $data['lokasi_project']);
-        $this->db->bind('witel', $data['witel']);
-        $this->db->bind('sto', $data['sto']);
-        $this->db->bind('odc', $data['odc']);
-
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    //Spesifiq Query List Of Material
-    public function tambahDataMaterial($data) {
-        $query = "INSERT INTO tbl_lom VALUES ('',:designator, :deskripsi, :satuan, :jenis_material, :jenis_alpro, :jenis_pekerjaan)";
-
-        $this->db->query($query);
-        $this->db->bind('designator', $data['designator']);
-        $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('satuan', $data['satuan']);
-        $this->db->bind('jenis_material', $data['jenis_material']);
-        $this->db->bind('jenis_alpro', $data['jenis_alpro']);
-        $this->db->bind('jenis_pekerjaan', $data['jenis_pekerjaan']);
-        
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    public function ubahDataMaterial($data){
-        $query = "UPDATE tbl_lom SET designator = :designator, deskripsi = :deskripsi, satuan = :satuan, jenis_material = :jenis_material, jenis_alpro = :jenis_alpro, jenis_pekerjaan = :jenis_pekerjaan WHERE id_lom = :id_lom";
-
-        $this->db->query($query);
-        $this->db->bind('id_lom', $data['id_lom']);
-        $this->db->bind('designator', $data['designator']);
-        $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('satuan', $data['satuan']);
-        $this->db->bind('jenis_material', $data['jenis_material']);
-        $this->db->bind('jenis_alpro', $data['jenis_alpro']);
-        $this->db->bind('jenis_pekerjaan', $data['jenis_pekerjaan']);
-
-
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    // Spesifik Query Pengguna
+    // Spesifik Query User
     public function tambahDataPengguna($data) {
         $query = "INSERT INTO tbl_pengguna VALUES (:nik, :nama, :jk, :username, :pass, :unit, :jabatan, :role_user, :no_hp, :email)";
 
@@ -278,37 +205,15 @@ class DataHandle {
     }
 
     //Spesifik Query Design OSP
-    public function getDetailDesign($id, $segment) {
+    public function getDetailDesign($id) {
         $this->db->query('SELECT
         tbl_design_osp.id_design,
         tbl_design_osp.id_project,
         tbl_design_osp.segment,
         tbl_design_osp.designator,
         tbl_design_osp.volume,
-        tbl_lom.deskripsi,
-        tbl_lom.satuan,
-        tbl_lom.jenis_material
-        FROM
-        tbl_design_osp
-        INNER JOIN tbl_lom ON tbl_design_osp.designator = tbl_lom.designator
-        WHERE
-        tbl_design_osp.id_project =:id and tbl_design_osp.segment = :segment ;');
-
-        $this->db->bind('id', $id);
-        $this->db->bind('segment', $segment);
-        return $this->db->resultSet();
-    }
-
-    public function getDetailDesignAll($id) {
-        $this->db->query('SELECT
-        tbl_design_osp.id_design,
-        tbl_design_osp.id_project,
-        tbl_design_osp.segment,
-        tbl_design_osp.designator,
-        tbl_design_osp.volume,
-        tbl_lom.deskripsi,
-        tbl_lom.satuan,
-        tbl_lom.jenis_material
+        tbl_lom.`desc`,
+        tbl_lom.satuan
         FROM
         tbl_design_osp
         INNER JOIN tbl_lom ON tbl_design_osp.designator = tbl_lom.designator
@@ -319,67 +224,7 @@ class DataHandle {
         return $this->db->resultSet();
     }
 
-    public function simpanMaterial ($data) {
-        $query = "INSERT INTO tbl_design_osp VALUES ('', :id_project, :segment, :designator, :volume)";
 
-        $this->db->query($query);
-        $this->db->bind('id_project', $data['id_project']);
-        $this->db->bind('segment', $data['segment']);
-        $this->db->bind('designator', $data['designator']);
-        $this->db->bind('volume', $data['volume']);
-        
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    //spesifik Query Obrolan
-
-    public function getListObrolan ($id) {
-        $this->db->query('SELECT
-        tbl_obrolan.nik_pengirim,
-        tbl_obrolan.nik_penerima
-        FROM
-        tbl_obrolan WHERE nik_penerima = :nik_penerima
-        GROUP BY
-        tbl_obrolan.nik_pengirim ORDER BY tgl_pesan ASC
-        ');
-
-        $this->db->bind('nik_penerima', $id);
-        return $this->db->resultSet();
-    }
-
-    //spesifik Query Berkas
-
-    public function tambahDataBerkas($data) {
-        $query = "INSERT INTO tbl_berkas VALUES ('', :judul, :nama_berkas, :stream, :deskripsi, :nik_pengirim, :tgl, :status)";
-
-        $this->db->query($query);
-        $this->db->bind('judul', $data['judul']);
-        $this->db->bind('nama_berkas', $data['nama_berkas']);
-        $this->db->bind('stream', $data['stream']);
-        $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('nik_pengirim', $data['nik_pengirim']);
-        $this->db->bind('tgl', $data['tgl']);
-        $this->db->bind('status', $data['status']);
-        
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
-
-    //Spesifik Query Validasi
-
-    public function statusBerkas($data) {
-        $query = "UPDATE tbl_berkas SET status = :status WHERE id_berkas = :id_berkas";
-
-        $this->db->query($query);
-        $this->db->bind('id_berkas', $data['id_berkas']);
-        $this->db->bind('status', $data['status']);
-
-        $this->db->execute();
-
-        return $this->db->rowCount();
-    }
+    
 
 }

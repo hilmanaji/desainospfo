@@ -43,14 +43,14 @@
             <tr>
                 <td><?= $no++; ?></td>
                 <td><?= $designator['designator'] ?></td>
-                <td><?= $designator['deskripsi'] ?></td>
+                <td><?= $designator['desc'] ?></td>
                 <td><?= $designator['satuan'] ?></td>
                 <td><?= $designator['jenis_material'] ?></td>
                 <td><?= $designator['jenis_alpro'] ?></td>
                 <td><?= $designator['jenis_pekerjaan'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/ListOfMaterial/getUbah/<?= $designator['id_lom'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/ListOfMaterial/hapus/<?= $designator['id_lom'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <a href="<?= BASEURL; ?>/ListOfMaterial/getUbah/<?= $designator['designator'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/ListOfMaterial/hapus/<?= $designator['designator'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

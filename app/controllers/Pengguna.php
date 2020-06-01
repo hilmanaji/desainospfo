@@ -4,7 +4,8 @@ class Pengguna extends Controller {
 	public function __construct(){
 		if(!isset($_SESSION["username"]))  {  
 			header('Location: ' . BASEURL . '/login/index');  
-		}	
+		}
+			
 	}
 
     public function index() {
@@ -83,7 +84,7 @@ class Pengguna extends Controller {
 		 	header('Location: ' . BASEURL . '/pengguna/index');
 		 	exit;
 		} else {
-		 	Flasher::setFlash('gagal','diubah','CssHapus');
+		 	Flasher::setFlash('gagal','diubah','CssUpdate');
 		 	header('Location: ' . BASEURL . '/pengguna/index');
 		 	exit;
 		}
@@ -161,9 +162,5 @@ class Pengguna extends Controller {
 			Flasher::setFlash('Password lama','Salah !','CssHapus');
 			header('Location: ' . BASEURL . '/pengguna/detilProfile/'. $nik .'');
 		}
-	}
-
-	public function resetPass () {
-		
 	}
 }

@@ -1,6 +1,6 @@
 
 <div class="judul">
-    <h4><a href="<?= BASEURL; ?>/ListOfMaterial/index"><?= $data['judul'] ?></a></h4>
+    <h4><a href="<?= BASEURL; ?>/project/index"><?= $data['judul'] ?></a></h4>
 </div>
 <div class="head-table">
     <h4><?= $data['sub_judul'] ?></h4>
@@ -15,7 +15,7 @@
                 </label>
                 <label for="desc">
                     <span>URAIAN PEKERJAAN<span class="required">*</span></span>
-                    <textarea name="deskripsi" class="textarea-field" style="width: 60%" required></textarea>
+                    <textarea name="desc" class="textarea-field" style="width: 60%" required></textarea>
                 </label>
                 <label for="satuan">
                     <span>LOKASI PROJECT<span class="required">*</span></span>

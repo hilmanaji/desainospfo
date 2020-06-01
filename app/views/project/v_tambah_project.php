@@ -53,7 +53,6 @@
                     <span>ODC<span class="required">*</span></span>
                     <input type="text" class="input-text" name="odc" value="" required/>
                 </label>
-                <input type="hidden"  name="status" value="BUTUH VALIDASI" />
                 
                 <label><span> </span><input type="submit" value="SIMPAN" /></label>
             </form>
