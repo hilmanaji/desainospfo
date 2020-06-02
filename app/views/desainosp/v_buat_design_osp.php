@@ -83,7 +83,7 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $design['id_design'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -167,14 +167,14 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $design['id_design'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
                 <tbody>
                 <tbody>
                         <div class="table-wrapper">
-                            <table id="myTable" class="table-designator">
+                            <table id="tblDistribusi" class="table-designator">
                                     <div class="navigasi">
                                         <?php Flasher::flash(); ?>
                                             <select id="optionFilter"" name="optionFilter">
@@ -183,7 +183,7 @@
                                                 <option value="4">SATUAN</option>
                                                 <option value="5">JENIS MATERIAL</option>
                                             </select>
-                                            <input type="text" id="myInput" onkeyup="cari()" placeholder="Masukan Pencarian" title="Ketik disini">
+                                            <input type="text" id="myInput" onkeyup="caritblDistribusi()" placeholder="Masukan Pencarian" title="Ketik disini">
                                     </div>
                                 <thead>
                                     <tr>
@@ -251,7 +251,7 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $design['id_design'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -334,7 +334,7 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $design['id_design'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -417,7 +417,7 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $design['id_design'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>                     
@@ -434,6 +434,26 @@ function cari() {
       input = document.getElementById("myInput");
       filter = input.value.toUpperCase();
       table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      v = parseInt(document.getElementById("optionFilter").value);
+      for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[v];
+          if (td) {
+              txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+          } else {
+              tr[i].style.display = "none";
+          }
+          }       
+      }
+}
+
+function caritblDistribusi() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("tblDistribusi");
       tr = table.getElementsByTagName("tr");
       v = parseInt(document.getElementById("optionFilter").value);
       for (i = 0; i < tr.length; i++) {

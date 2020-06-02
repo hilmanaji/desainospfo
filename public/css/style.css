@@ -90,16 +90,41 @@ body{
     width: 100%;
   }
   
-  #myTable2 td, #myTable2 th {
+#myTable2 td, #myTable2 th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  #myTable2 tr:nth-child(even){background-color: #f2f2f2;}
+#myTable2 tr:nth-child(even){background-color: #f2f2f2;}
   
-  #myTable2 tr:hover {background-color: #4fd5da;}
+#myTable2 tr:hover {background-color: #4fd5da;}
   
-  #myTable2 th {
+#myTable2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #63b1c9;
+    color: #000000;
+}
+
+#tblDistribusi {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-weight: normal;
+    width: 100%;
+  }
+  
+#tblDistribusi td, #tblDistribusi th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+#tblDistribusi tr:nth-child(even){background-color: #f2f2f2;}
+  
+#tblDistribusi tr:hover {background-color: #4fd5da;}
+  
+#tblDistribusi th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;

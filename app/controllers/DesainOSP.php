@@ -49,7 +49,15 @@ class DesainOSP extends Controller {
 		}
     }
 
-    public function hapusMaterial () {
-
+    public function hapusMaterial ($id, $id_project) {
+        if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_design_osp', $id_table = 'id_design') > 0) {
+			Flasher::setFlash('Berhasil','dihapus','CssHapus');
+			header('Location: ' . BASEURL . '/DesainOSP/detailDesign/'. $id_project .'');
+			exit;
+		} else {
+			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
+			header('Location: ' . BASEURL . '/DesainOSP/detailDesign/'. $id_project .'');
+			exit;
+		}
     }
 }

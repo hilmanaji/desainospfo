@@ -6,6 +6,6 @@
 </div>
 <div class="data-table">
     
-    <embed src="/desainospfo/app/berkas/<?= $data['data_berkas']['nama_berkas'] ?>.pdf" type="application/pdf" width="100%" height=630px" />
+    <embed src="/desainospfo/app/berkas/<?= $data['data_berkas']['nama_berkas'] ?>.pdf" type="application/pdf" width="100%" height=650px" />
     
 </div>
