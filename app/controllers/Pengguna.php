@@ -66,7 +66,7 @@ class Pengguna extends Controller {
 	}
  
 	public function getUbah($id){
-		$data['judul'] = 'Ubah Data Pengguna';
+		$data['judul'] = 'Pengguna';
 		$data['sub_judul'] = 'Ubah Data Pengguna';
 		$data['data_pengguna'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_pengguna',$id_table = 'nik', $id);
 		$this->view('templates/header', $data);

@@ -91,7 +91,7 @@
                     <td><?= $berkas['deskripsi'] ?></td>
                     <td><?= $berkas['status'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/ListOfMaterial/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

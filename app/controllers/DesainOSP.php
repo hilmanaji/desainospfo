@@ -60,4 +60,31 @@ class DesainOSP extends Controller {
 			exit;
 		}
     }
+
+    public function ubahVolume($id, $id_project){
+        $data['judul'] = 'Design OSP FO';
+        $data['sub_judul'] = 'Data Material dan Jasa OSP FO';
+
+        $data['data_project'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_project',$id_table = 'id_project', $id_project);
+        $data['data_design'] = $this->model('DataHandle')->getDetailDesignById($id);
+
+        $this->view('templates/header', $data);
+		$this->view('templates/sidebar', $data);
+		$this->view('desainosp/v_ubah_design_osp', $data);
+        $this->view('templates/footer');
+    }
+
+    public function simpanVolume() {
+        $id_project = $_POST["id_project"];
+
+		if( $this->model('DataHandle')->ubahDataVolume($_POST) > 0) {
+            Flasher::setFlash('Berhasil','diubah','CssUpdate');
+            header('Location: ' . BASEURL . '/DesainOSP/detailDesign/'. $id_project .'');
+            exit;
+        } else {
+            Flasher::setFlash('gagal','diubah','CssHapus');
+            header('Location: ' . BASEURL . '/DesainOSP/detailDesign/'. $id_project .'');
+            exit;
+       }
+    }
 }

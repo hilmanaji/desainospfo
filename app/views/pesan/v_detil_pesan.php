@@ -17,25 +17,26 @@
     <div class="mainPesan">
         <div class="gaya-form">
             <form action="#" method="">
-                <label for="pengirim">
+                <input type="hidden" class="" name="nik_pengirim" value="<?= $_SESSION['nik'] ?>" required/>
+                <label for="">
                     <span>Dari</span>
-                    <span><?= $data['data_pesan']['nama'] ?></span><br>
+                    :&nbsp;<?= $data['data_pesan']['nama'] ?>
                 </label>
-                <label for="tanggal">
-                    <span>Tanggl</span>
-                    <span><?= $data['data_pesan']['tgl_kirim'] ?></span>
+                <label for="">
+                    <span>Tanggal<span class="required">*</span></span>
+                    :&nbsp;<?= $data['data_pesan']['tgl_kirim'] ?>
                 </label>
-                <label for="subjek">
-                    <span>Subjek</span>
-                    <span><?= $data['data_pesan']['subjek'] ?></span><br>
+                <label for="">
+                    <span>Subjek<span class="required">*</span></span>
+                    :&nbsp;<?= $data['data_pesan']['subjek'] ?>
                 </label>
-                <label for="pesan">
+                <label for="">
                     <span>Pesan<span class="required">*</span></span>
-                    <span><?= $data['data_pesan']['pesan'] ?><span class="required">*</span></span><br>
+                    :&nbsp;<?= $data['data_pesan']['pesan'] ?>
                 </label>
-                
-                
-                <label><span> </span><input type="submit" value="BALAS" /></label>
+                <div class="navigasi">               
+                <label><a href="<?= BASEURL;?>/Pesan/buatPesan/<?= $data['data_pesan']['nik_pengirim'] ?>/<?= $data['data_pesan']['nama'] ?>">BALAS</a></label>
+                </div>
             </form>
         </div>
     </div>    

@@ -24,6 +24,7 @@
                 <label for="nik_penerima">
                     <span>Kepada</span>
                     <select name="nik_penerima" class="select-field">
+                        <option value="<?= $data['nik_penerima'] ?>"><?= $data['nama_penerima'] ?></option>
                         <?php foreach ( $data['data_pengguna'] as $pengguna ) : ?>    
                             <option value="<?= $pengguna['nik'] ?>"><?= $pengguna['nama'] ?></option>
                         <?php endforeach; ?>
@@ -40,7 +41,7 @@
                 <input type="hidden" class="" name="status_pengirim" value="1" required/>
                 <input type="hidden" class="" name="status_penerima" value="1" required/>
                 
-                <label><span> </span><input type="submit" value="SIMPAN" /></label>
+                <label><span> </span><input type="submit" value="KIRIM" /></label>
             </form>
         </div>
     </div>    

@@ -32,7 +32,7 @@
         <form onSubmit="return blockSubmit();">
             <label for="pesan">Pesan :</label>
             <input type="text" name="pesan" id="inputObrolan" size="50">
-            <input type="button" value="KIRIM" onclick="kirimPesan()">
+            <input type="button" value="KIRIM" onclick="blockSubmit()">
         </form>
     </div>    
 </div>

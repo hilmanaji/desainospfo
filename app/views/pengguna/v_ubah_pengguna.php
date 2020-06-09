@@ -1,5 +1,5 @@
 <div class="judul">
-    <h4>Setting / <a href="<?= BASEURL; ?>/user/index"><?= $data['judul'] ?></a></h4>
+    <h4><a href="<?= BASEURL; ?>/user/index"><?= $data['judul'] ?></a></h4>
 </div>
 <div class="head-table">
     <h4><?= $data['sub_judul'] ?></h4>
@@ -54,7 +54,7 @@
                     <input type="number" class="input-text" name="no_hp" value="<?= $data['data_pengguna']['no_hp'] ?>" required/>
                 </label>
                 
-                <label><span> </span><input type="submit" value="SIMPAN" ><a href="<?= BASEURL; ?>/Pengguna/index">RESET PASSWORD</a><a href="<?= BASEURL; ?>/Pengguna/index">KEMBALI</a></label>
+                <label><span> </span><input type="submit" value="SIMPAN" ><a href="<?= BASEURL; ?>/Pengguna/resetPass/<?= $data['data_pengguna']['nik'] ?>">RESET PASSWORD</a><a href="<?= BASEURL; ?>/Pengguna/index">KEMBALI</a></label>
                 
             </form>
         </div>

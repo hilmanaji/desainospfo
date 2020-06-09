@@ -179,14 +179,14 @@ class DataHandle {
     }
 
     public function ubahDataPengguna($data) {
-        $query = "UPDATE tbl_pengguna SET nik = :nik, nama = :nama, jk = :jk, username = :username, pass = :pass, unit = :unit, jabatan = :jabatan, role_user = :role_user, no_hp = :no_hp, email = :email WHERE nik = :nik";
+        $query = "UPDATE tbl_pengguna SET nik = :nik, nama = :nama, jk = :jk, username = :username, unit = :unit, jabatan = :jabatan, role_user = :role_user, no_hp = :no_hp, email = :email WHERE nik = :nik";
         
         $this->db->query($query);
         $this->db->bind('nik', $data['nik']);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('jk', $data['jk']);
         $this->db->bind('username', $data['username']);
-        $this->db->bind('pass', md5($data['pass']));
+        // $this->db->bind('pass', md5($data['pass']));
         $this->db->bind('unit', $data['unit']);
         $this->db->bind('jabatan', $data['jabatan']);
         $this->db->bind('role_user', $data['role_user']);
@@ -231,13 +231,14 @@ class DataHandle {
     }
     
     public function kirimkanPesan($data) {
-        $query = "INSERT INTO tbl_pesan VALUES ('', :nik_pengirim, :nik_penerima, :subjek, :pesan,'', :status_pengirim, :status_penerima)";
+        $query = "INSERT INTO tbl_pesan VALUES ('', :nik_pengirim, :nik_penerima, :subjek, :pesan, :tgl_kirim, :status_pengirim, :status_penerima)";
 
         $this->db->query($query);
         $this->db->bind('nik_pengirim', $data['nik_pengirim']);
         $this->db->bind('nik_penerima', $data['nik_penerima']);
         $this->db->bind('subjek', $data['subjek']);
         $this->db->bind('pesan', $data['pesan']);
+        $this->db->bind('tgl_kirim', date("Y-m-d H:i:s"));
         $this->db->bind('status_pengirim', $data['status_pengirim']);
         $this->db->bind('status_penerima', $data['status_penerima']);
 
@@ -319,6 +320,26 @@ class DataHandle {
         return $this->db->resultSet();
     }
 
+    public function getDetailDesignById($id) {
+        $this->db->query('SELECT
+        tbl_design_osp.id_design,
+        tbl_design_osp.id_project,
+        tbl_design_osp.segment,
+        tbl_design_osp.designator,
+        tbl_design_osp.volume,
+        tbl_lom.deskripsi,
+        tbl_lom.satuan,
+        tbl_lom.jenis_material
+        FROM
+        tbl_design_osp
+        INNER JOIN tbl_lom ON tbl_design_osp.designator = tbl_lom.designator
+        WHERE
+        tbl_design_osp.id_design =:id;');
+
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+
     public function simpanMaterial ($data) {
         $query = "INSERT INTO tbl_design_osp VALUES ('', :id_project, :segment, :designator, :volume)";
 
@@ -331,6 +352,19 @@ class DataHandle {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function ubahDataVolume($data){
+        $query = "UPDATE tbl_design_osp SET volume = :volume WHERE id_design = :id_design";
+
+        $this->db->query($query);
+        $this->db->bind('id_design', $data['id_design']);
+        $this->db->bind('volume', $data['volume']);
+        
+        $this->db->execute();
+
+        return $this->db->rowCount();
+        
     }
 
     //spesifik Query Obrolan

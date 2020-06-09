@@ -55,6 +55,7 @@
         <button class="tablinks" onclick="openTab(event, 'dc')">Segment Drop Cable</button>
         <button class="tablinks" onclick="openTab(event, 'ikr')">Segment IKR & IKG</button>
         <button class="tablinks" onclick="openTab(event, 'ringkasan')">Ringkasan</button>
+        <button class="tablinks" onclick="openTab(event, 'skema')">Skema</button>
     </div>  
     <div id="feeder" class="tabcontent">
         <div class="table-wrapper">
@@ -82,8 +83,14 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin') { ?>
+                        <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -127,7 +134,13 @@
                                     <td><?= $designator['satuan'] ?></td>
                                     <td><input type="number" class="selectDesignator" name="volume" placeholder="Volume" title="Masukan Volume Material atau jasa"></td>
                                     <td>
-                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>           
+                                        <?php
+                                        if ($_SESSION["role_user"] == 'Admin') { ?>
+                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>
+                                        <?php }
+                                        else { ?>
+
+                                        <?php } ?>        
                                     </td>
                                 </tr>
                                 </form>
@@ -166,7 +179,7 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
@@ -250,7 +263,7 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
@@ -333,7 +346,7 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                     </td>
                 </tr>
@@ -423,6 +436,11 @@
                 <?php endforeach; ?>                     
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div id="skema" class="tabcontent">
+        <div class="table-wrapper">
+            Skema disini 
         </div>
     </div>
 

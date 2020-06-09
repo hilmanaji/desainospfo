@@ -1,78 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="2"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= $data['judul']; ?></title>
-    <link rel="stylesheet" href="<?= BASEURL; ?>/css/login.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Masuk Aplikasi KMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    a {
+  text-decoration: none;
+}
+body {
+  background-image: url("http://localhost/desainospfo/public/img/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
+  background-repeat: no-repeat; */
+  
+}
+label {
+  font-family: "Raleway", sans-serif;
+  font-size: 11pt;
+}
+#forgot-pass {
+  color: #1982e4;
+  font-family: "Raleway", sans-serif;
+  font-size: 10pt;
+  margin-top: 3px;
+  text-align: right;
+}
+#card {
+  background: #fbfbfb;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+  height: 410px;
+  margin: 12rem auto 22.95rem auto;
+  width: 329px;
+}
+#card-content {
+  padding: 12px 44px;
+}
+#card-title {
+  font-family: "Raleway Thin", sans-serif;
+  letter-spacing: 4px;
+  padding-bottom: 23px;
+  padding-top: 13px;
+  text-align: center;
+}
+#signup {
+  color: #1982e4;
+  font-family: "Raleway", sans-serif;
+  font-size: 10pt;
+  margin-top: 16px;
+  text-align: center;
+}
+#submit-btn {
+  background: -webkit-linear-gradient(right, #1982e4, #db2727);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #db2727;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  margin: 0 auto;
+  margin-top: 50px;
+  transition: 0.25s;
+  width: 153px;
+}
+#submit-btn:hover {
+  box-shadow: 0px 1px 18px #db2727;
+}
+.form {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+}
+.form-border {
+  background: -webkit-linear-gradient(right, #1982e4, #db2727);
+  height: 1px;
+  width: 100%;
+}
+.form-content {
+  background: #fbfbfb;
+  border: none;
+  outline: none;
+  padding-top: 14px;
+}
+.underline-title {
+  background: -webkit-linear-gradient(right, #1982e4, #db2727);
+  height: 2px;
+  margin: -1.1rem auto 0 auto;
+  width: 89px;
+}
+  </style>
 </head>
+
 <body>
-<p class="tip">Click on button in image container</p>
-<div class="cont">
-  <div class="form sign-in">
-    <h2>Welcome back,</h2>
-    <label>
-      <span>Email</span>
-      <input type="email" />
-    </label>
-    <label>
-      <span>Password</span>
-      <input type="password" />
-    </label>
-    <p class="forgot-pass">Forgot password?</p>
-    <button type="button" class="submit">Sign In</button>
-    <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
-  </div>
-  <div class="sub-cont">
-    <div class="img">
-      <div class="img__text m--up">
-        <h2>New here?</h2>
-        <p>Sign up and discover great amount of new opportunities!</p>
+  <div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>LOGIN</h2>
+        <div class="underline-title"></div>
       </div>
-      <div class="img__text m--in">
-        <h2>One of us?</h2>
-        <p>If you already has an account, just sign in. We've missed you!</p>
-      </div>
-      <div class="img__btn">
-        <span class="m--up">Sign Up</span>
-        <span class="m--in">Sign In</span>
-      </div>
-    </div>
-    <div class="form sign-up">
-      <h2>Time to feel like home,</h2>
-      <label>
-        <span>Name</span>
-        <input type="text" />
-      </label>
-      <label>
-        <span>Email</span>
-        <input type="email" />
-      </label>
-      <label>
-        <span>Password</span>
-        <input type="password" />
-      </label>
-      <button type="button" class="submit">Sign Up</button>
-      <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+      <form method="post" class="form" action="<?= BASEURL; ?>/login/cekLogin/">
+        <label for="user-email" style="padding-top:13px">
+            &nbsp;Username
+          </label>
+        <input id="user-email" class="form-content" type="text" name="username" autocomplete="on" required />
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top:22px">&nbsp;Password
+          </label>
+        <input id="user-password" class="form-content" type="password" name="pass" required />
+        <div class="form-border"></div>
+        <a href="#">
+          <legend id="forgot-pass">Lupa password ?</legend>
+        </a>
+        <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
+        <a href="#" id="signup">Belum punya Akun ?</a>
+      </form>
     </div>
   </div>
-</div>
-
-<a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
-  <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
-</a>
-<a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
-  <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
-</a>
-
-
-<script>
-document.querySelector('.img__btn').addEventListener('click', function() {
-  document.querySelector('.cont').classList.toggle('s--signup');
-});
-
-</script>
 </body>
+
 </html>
