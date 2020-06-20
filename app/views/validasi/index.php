@@ -48,7 +48,7 @@
                     <td>
                         <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>">LIHAT</a>
                         <a href="<?= BASEURL; ?>/Validasi/approveBerkas/<?= $berkas['id_berkas'] ?>" onClick="return confirm('Anda Yakin Akan Menyetujui untuk dirilis ?')">APPROVE</a>
-                        <a href="<?= BASEURL; ?>/Validasi/rejectBerkas/<?= $berkas['id_berkas'] ?>">REJECT</a>
+                        <a href="<?= BASEURL; ?>/Validasi/rejectBerkas/<?= $berkas['id_berkas'] ?>" onClick="return confirm('Anda Yakin Akan Menolak untuk dirilis ?')">REJECT</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -101,11 +101,11 @@
                     <td><?= $design['witel'] ?></td>
                     <td><?= $design['sto'] ?></td>
                     <td><?= $design['odc'] ?></td>
-                    <td><?= $design['status'] ?></td>
+                    <td><?= $design['sts'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/Validasi/lihatDesign/<?= $design['id_project'] ?>">LIHAT</a>
-                        <a href="<?= BASEURL; ?>/Validasi/approveDesign/<?= $design['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menyetujui untuk dirilis ?')">APPROVE</a>
-                        <a href="<?= BASEURL; ?>/Validasi/rejectDesign/<?= $design['id_project'] ?>">REJECT</a>
+                        <!-- <a href="<?= BASEURL; ?>/Validasi/lihatDesign/<?= $design['id_project'] ?>">LIHAT</a> -->
+                        <a href="<?= BASEURL; ?>/Validasi/approveProject/<?= $design['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menyetujui untuk dirilis ?')">APPROVE</a>
+                        <a href="<?= BASEURL; ?>/Validasi/rejectProject/<?= $design['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menolak untuk dirilis ?')">REJECT</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

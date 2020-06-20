@@ -20,6 +20,7 @@
                 <label for="jk">
                     <span>JENIS KELAMIN</span>
                     <select name="jk" class="select-field">
+                        <option value="">--Pilih Jenis Kelamin--</option>
                         <option value="L">Laki - laki</option>
                         <option value="P">Perempuan</option>
                     </select>
@@ -47,8 +48,8 @@
                 <label for="role_user">
                     <span>TIPE USER</span>
                     <select name="role_user" class="select-field">
-                        <option value="Pakar">Pakar</option>
                         <option value="Admin">Admin</option>
+                        <option value="Pakar">Pakar</option>
                         <option value="Anggota">Anggota</option>
                     </select>
                 </label>

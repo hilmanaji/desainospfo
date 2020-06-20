@@ -1,55 +1,52 @@
-* {
-    box-sizing: border-box;
-}
-@media (max-width: 600px) {
-    nav, article {
-      width: 100%;
-      height: auto;
-    }
-}
-body{
-    font-family: "Raleway", sans-serif;
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  font-family: "Raleway", sans-serif;
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  text-decoration: none;
 }
 
 
 header {
+    font-family: "Raleway", sans-serif;
     background-color: #ffffff;
-    padding: 30px;
+    padding: 5px;
     text-align: center;
     font-size: 35px;
     color: #000000;
 }
-
-nav {
-    text-align: center;
+/* Style tab links */
+.tablink {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  background-color: #363636;
+  color: #ffffff;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-  }
-  
-li {
-    float: left;
-  }
-  
-li a {
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-li a:hover:not(.active) {
-    background-color: #ddd;
-  }
-  
-li a.active {
-    color: white;
-    background-color: #4CAF50;
-  }
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  font-family: "Raleway", sans-serif;
+  color: #000000;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: #ffffff;}
+#News {background-color: #ffffff;}
+#Contact {background-color: #ffffff;}
+#About {background-color: #ffffff;}

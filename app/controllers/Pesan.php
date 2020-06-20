@@ -52,11 +52,11 @@ class Pesan extends Controller {
     public function hapusPesanMasuk($id) {
 		if( $this->model('DataHandle')->hapusPesanMasuk($id, $status='0' ) > 0) {
 			Flasher::setFlash('Berhasil','dihapus','CssTambah');
-			header('Location: ' . BASEURL . '/pesan/index'. $_SESSION['nik'] .'');
+			header('Location: ' . BASEURL . '/pesan/index/'. $_SESSION['nik'] .'');
 			exit;
 		} else {
 			Flasher::setFlash('gagal','dihapus','CssHapus');
-			header('Location: ' . BASEURL . '/pesan/index'. $_SESSION['nik'] .'');
+			header('Location: ' . BASEURL . '/pesan/index/'. $_SESSION['nik'] .'');
 			exit;
 		}
     }
@@ -64,11 +64,11 @@ class Pesan extends Controller {
     public function hapusPesanTerkirim($id) {
 		if( $this->model('DataHandle')->hapusPesanTerkirim($id, $status='0' ) > 0) {
 			Flasher::setFlash('Berhasil','dihapus','CssTambah');
-			header('Location: ' . BASEURL . '/pesan/pesanTerkirim'. $_SESSION['nik'] .'');
+			header('Location: ' . BASEURL . '/pesan/pesanTerkirim/'. $_SESSION['nik'] .'');
 			exit;
 		} else {
 			Flasher::setFlash('gagal','dihapus','CssHapus');
-			header('Location: ' . BASEURL . '/pesan/pesanTerkirim'. $_SESSION['nik'] .'');
+			header('Location: ' . BASEURL . '/pesan/pesanTerkirim/'. $_SESSION['nik'] .'');
 			exit;
 		}
 	}

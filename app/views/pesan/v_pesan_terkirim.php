@@ -31,7 +31,8 @@
             <?php foreach ( $data['data_pesan'] as $pesan ) : ?>
             <tr>
                 <td> <?= $pesan['nama'] ?></td>
-                <td><?= $pesan['subjek'] ?></td>
+                <!-- <td><?= $pesan['subjek'] ?></td> -->
+                <td><a class="pesan-masuk" href="<?= BASEURL; ?>/pesan/detilPesan/<?= $pesan['id_pesan'] ?>"><?= $pesan['subjek'] ?></td>
                 <td><?= $pesan['tgl_kirim'] ?></td>
                 <td>
                     <a href="<?= BASEURL; ?>/pesan/hapusPesanTerkirim/<?= $pesan['id_pesan'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>

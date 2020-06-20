@@ -41,6 +41,15 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
+    public function cekData($table){
+        $query = "SELECT * FROM $table";
+
+        $this->db->query($query);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function cekDataLogin($data){
         $query = "SELECT * FROM tbl_pengguna WHERE username = :username AND pass = :pass";
 
@@ -73,15 +82,28 @@ class DataHandle {
         return $this->db->single(); 
     }
 
-    public function getCountRow ($table, $kolom) {
-        $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' ');
-        return $this->db->single();
+    public function simpanDataLogin($nik){
+        $query = "INSERT INTO tbl_log VALUES ('', :nik, :waktu)";
+
+        $this->db->query($query);
+        $this->db->bind('nik', $nik);
+        $this->db->bind('waktu', date("Y-m-d H:i:s"));
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
-    public function getCountRowById ($table, $kolom, $id, $kondisi) {
-        $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' WHERE  '.$id.' = '.$kondisi.' ');
-        return $this->db->single();
-    }
+    // public function getCountRow ($table, $kolom) {
+    //     $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' ');
+    //     return $this->db->single();
+    // }
+
+    // public function getCountRowById ($table, $kolom, $id, $kondisi) {
+    //     $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' WHERE  '.$id.' = '.$kondisi.' ');
+    //     return $this->db->single();
+    // }
     // End General Query
 
     //Spesifik Query Project
@@ -120,6 +142,17 @@ class DataHandle {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function cekNamaDesain($data){
+        $query = "SELECT nama_desain FROM tbl_project WHERE nama_desain = :nama_desain";
+
+        $this->db->query($query);
+        $this->db->bind('nama_desain', $data);
+
+        $this->db->execute();
+
+        return $this->db->rowCount(); 
     }
 
     //Spesifiq Query List Of Material
@@ -386,7 +419,7 @@ class DataHandle {
     //spesifik Query Berkas
 
     public function tambahDataBerkas($data) {
-        $query = "INSERT INTO tbl_berkas VALUES ('', :judul, :nama_berkas, :stream, :deskripsi, :nik_pengirim, :tgl, :status)";
+        $query = "INSERT INTO tbl_berkas VALUES ('', :judul, :nama_berkas, :stream, :deskripsi, :nik_pengirim, :tgl, :status,'')";
 
         $this->db->query($query);
         $this->db->bind('judul', $data['judul']);
@@ -402,6 +435,18 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
+    public function hitungLihat($id,$jumlah) {
+        $query = "UPDATE tbl_berkas SET dilihat = :dilihat WHERE id_berkas = :id_berkas";
+
+        $this->db->query($query);
+        $this->db->bind('id_berkas', $id);
+        $this->db->bind('dilihat', $jumlah);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     //Spesifik Query Validasi
 
     public function statusBerkas($data) {
@@ -410,6 +455,18 @@ class DataHandle {
         $this->db->query($query);
         $this->db->bind('id_berkas', $data['id_berkas']);
         $this->db->bind('status', $data['status']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function statusProject($data) {
+        $query = "UPDATE tbl_project SET sts = :sts WHERE id_project = :id_project";
+
+        $this->db->query($query);
+        $this->db->bind('id_project', $data['id_project']);
+        $this->db->bind('sts', $data['status']);
 
         $this->db->execute();
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $data['judul']; ?></title>
+    <link rel="icon" href="<?= BASEURL; ?>/img/favicon.png" type="png" sizes="18x18">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/main.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/form.css">

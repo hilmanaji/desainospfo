@@ -28,15 +28,22 @@ class Project extends Controller {
 	}
 
     public function simpan() {
-		if( $this->model('DataHandle')->tambahDataProject($_POST) > 0) {
-			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
-			header('Location: ' . BASEURL . '/project/index');
+		$nama_project = $_POST['nama_desain'];
+		if( $this->model('DataHandle')->cekNamaDesain($nama_project) > 0) {
+			Flasher::setFlash('Nama Desain','sudah ada, masukan nama lain','CssTambah');
+			header('Location: ' . BASEURL . '/project/tambahData');
 			exit;
 		} else {
-			Flasher::setFlash('gagal','ditambahkan','CssHapus');
-			header('Location: ' . BASEURL . '/project/index');
-			exit;
-		}
+			if( $this->model('DataHandle')->tambahDataProject($_POST) > 0) {
+				Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
+				header('Location: ' . BASEURL . '/project/index');
+				exit;
+			} else {
+				Flasher::setFlash('gagal','ditambahkan','CssHapus');
+				header('Location: ' . BASEURL . '/project/index');
+				exit;
+			}
+		} 
 	}
 
 	public function hapus($id) {

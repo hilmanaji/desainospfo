@@ -10,7 +10,8 @@ class DesainOSP extends Controller {
     public function index() {
         $data['judul'] = 'Design OSP FO';
         $data['sub_judul'] = 'Tambah Data Design';
-        $data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_project');
+        // $data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_project');
+        $data['data_project'] = $this->model('DataHandle')->getAllById($table='tbl_project', $id_table='sts', $id='SUDAH VALIDASI');
 		
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);

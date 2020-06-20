@@ -7,6 +7,7 @@
 </div>
 <div class="data-table">
     <div class="navigasi">
+    <?php Flasher::flash(); ?>
         <div class="gaya-form">
             <form action="<?= BASEURL; ?>/Project/simpan/" method="post">
                 <label for="id_project">

@@ -2,9 +2,9 @@
 
 class Berkas extends Controller {
     public function __construct(){
-        if(!isset($_SESSION["username"]))  {  
-			header('Location: ' . BASEURL . '/login/index');  
-		}
+        // if(!isset($_SESSION["username"]))  {  
+		// 	header('Location: ' . BASEURL . '/login/index');  
+		// }
 	}
 
     public function index($nik) {
@@ -89,7 +89,11 @@ class Berkas extends Controller {
 	public function getDetil($id){
 		$data['judul'] = 'Modul Pengetahuan';
         $data['sub_judul'] = 'Data Modul Pengetahuan';
-        $data['data_berkas'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_berkas',$id_table = 'id_berkas', $id);
+		$data['data_berkas'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_berkas',$id_table = 'id_berkas', $id);
+
+		$jumlah = $data['data_berkas']['dilihat'] + 1;
+		$this->model('DataHandle')->hitungLihat($id,$jumlah);
+
 		
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
@@ -98,6 +102,7 @@ class Berkas extends Controller {
 	}
 
 	public function getBerkas($id){
+
 		$data['judul'] = 'Modul Pengetahuan';
         $data['sub_judul'] = 'Data Modul Pengetahuan';
         $data['data_berkas'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_berkas',$id_table = 'id_berkas', $id);
@@ -106,5 +111,19 @@ class Berkas extends Controller {
 		$this->view('templates/sidebar', $data);
 		$this->view('berkas/v_lihat_berkas', $data);
         $this->view('templates/footer');
+	}
+
+	public function hapusBerkas($id){
+		$nik_pengirim = $_SESSION['nik'];
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_berkas', $id_table = 'id_berkas') > 0) {
+			Flasher::setFlash('Berhasil','dihapus','CssTambah');
+			header('Location: ' . BASEURL . '/Berkas/index/'. $nik_pengirim .'');
+			exit;
+		} else {
+			Flasher::setFlash('Gagal','dihapus','CssHapus');
+			header('Location: ' . BASEURL . '/Berkas/index/'. $nik_pengirim .'');
+			exit;
+		}
+
 	}
 }

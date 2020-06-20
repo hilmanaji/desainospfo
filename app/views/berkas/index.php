@@ -31,7 +31,8 @@
                     <th>Judul Pengetahuan</th>
                     <th>Stream</th>
                     <th>Deskripsi</th>
-                    <th width="100px">ACTION</th>
+                    <th>&Sigma; Dilihat</th>
+                    <th width="120px">ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,8 +44,16 @@
                     <td><?= $berkas['judul'] ?></td>
                     <td><?= $berkas['stream'] ?></td>
                     <td><?= $berkas['deskripsi'] ?></td>
+                    <td><?= $berkas['dilihat'] ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/Berkas/getDetil/<?= $berkas['id_berkas'] ?>"><img src="<?= BASEURL; ?>/img/lihat.png" alt=""  width="25" heigth="25"></a>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin') { ?>
+                        <a title="Hapus Data" href="<?= BASEURL; ?>/Berkas/hapusBerkas/<?= $berkas['id_berkas'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
