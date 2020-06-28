@@ -23,10 +23,7 @@ class Login extends Controller {
 		if( $this->model('DataHandle')->cekData($table = 'tbl_pengguna') > 0) {
 			// login pertama
 			if( $this->model('DataHandle')->cekDataLogin($post) > 0) {
-				
-				//$id_mitra = $data['user']['id_mitra'];
-				//$data_mitra['mitra'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_mitra', $id_table = 'id_mitra', $id_mitra);
-		
+						
 				$_SESSION['nik'] = $data['pengguna']['nik'];
 				$_SESSION['nama'] = $data['pengguna']['nama'];
 				$_SESSION['username'] = $data['pengguna']['username'];
@@ -47,6 +44,7 @@ class Login extends Controller {
 		} else {
 			$_SESSION['role_user'] = "SuperAdmin";
 			$_SESSION['nama'] = "SuperAdmin";
+			$_SESSION["username"] = "SuperAdmin";
 
 			header('Location: ' . BASEURL . '/Pengguna/buatAdmin');
 		}

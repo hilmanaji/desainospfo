@@ -84,7 +84,7 @@
                     <td><?= $design['volume'] ?></td>
                     <td>
                         <?php
-                        if ($_SESSION["role_user"] == 'Admin') { ?>
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                         <?php }
@@ -135,7 +135,7 @@
                                     <td><input type="number" class="selectDesignator" name="volume" placeholder="Volume" title="Masukan Volume Material atau jasa"></td>
                                     <td>
                                         <?php
-                                        if ($_SESSION["role_user"] == 'Admin') { ?>
+                                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
                                         <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>
                                         <?php }
                                         else { ?>
@@ -179,8 +179,14 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
+                    <?php
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>    
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -224,7 +230,13 @@
                                     <td><?= $designator['satuan'] ?></td>
                                     <td><input type="number" class="selectDesignator" name="volume" placeholder="Volume" title="Masukan Volume Material atau jasa"></td>
                                     <td>
-                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>           
+                                        <?php
+                                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
+                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>
+                                        <?php }
+                                        else { ?>
+
+                                        <?php } ?>          
                                     </td>
                                 </tr>
                                 </form>
@@ -263,8 +275,14 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -308,8 +326,13 @@
                                     <td><?= $designator['satuan'] ?></td>
                                     <td><input type="number" class="selectDesignator" name="volume" placeholder="Volume" title="Masukan Volume Material atau jasa"></td>
                                     <td>
-                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>           
-                                    </td>
+                                        <?php
+                                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
+                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>
+                                        <?php }
+                                        else { ?>
+
+                                        <?php } ?>
                                 </tr>
                                 </form>
                                 <?php endforeach; ?>
@@ -346,8 +369,14 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
                         <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -391,7 +420,13 @@
                                     <td><?= $designator['satuan'] ?></td>
                                     <td><input type="number" class="selectDesignator" name="volume" placeholder="Volume" title="Masukan Volume Material atau jasa"></td>
                                     <td>
-                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>           
+                                        <?php
+                                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
+                                        <input class="update-progres" type="image" src="<?= BASEURL; ?>/img/tambah.png" width="15" heigth="15"/>
+                                        <?php }
+                                        else { ?>
+
+                                        <?php } ?>          
                                     </td>
                                 </tr>
                                 </form>
@@ -429,8 +464,14 @@
                     <td><?= $design['satuan'] ?></td>
                     <td><?= $design['volume'] ?></td>
                     <td>
-                        <a href="<?= BASEURL; ?>/DesainOSP/ubahProgres/<?= $design['id_design'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
+                        <a href="<?= BASEURL; ?>/DesainOSP/ubahVolume/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                         <a href="<?= BASEURL; ?>/DesainOSP/hapusMaterial/<?= $design['id_design'] ?>/<?= $data['data_project']['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>    
                     </td>
                 </tr>
                 <?php endforeach; ?>                     
@@ -440,7 +481,47 @@
     </div>
     <div id="skema" class="tabcontent">
         <div class="table-wrapper">
-            Skema disini 
+            <div class="grid-container1">
+                <div>
+                    SEGMENT A </br></br></br></br></br>
+                <img src="<?= BASEURL;?>/img/gedung.png" alt="" width="100" heigth="100">
+                <img src="<?= BASEURL;?>/img/odc.png" alt="" width="170" heigth="150">
+                </div>
+                <div>
+                    SEGMENT B </br></br></br></br></br>
+                    <img src="<?= BASEURL;?>/img/odp.png" alt="" width="170" heigth="150">
+                </div>
+                <div>
+                    SEGMENT C </br></br></br></br></br>
+                    <img src="<?= BASEURL;?>/img/drop.png" alt="" width="100" heigth="100">
+                </div>  
+                <div>
+                    SEGMENT D </br>
+                    <img src="<?= BASEURL;?>/img/rumah.png" alt="" width="100" heigth="100">
+                    <img src="<?= BASEURL;?>/img/gedung2.png" alt="" width="100" heigth="100">
+                    <img src="<?= BASEURL;?>/img/bts.png" alt="" width="100" heigth="50">
+                </div>
+                <div>
+                <?php foreach ( $data['data_feeder'] as $design ) : ?>
+                    <?= $design['designator'] ?>(<?= $design['volume'] ?>)</br>
+                <?php endforeach; ?>
+                </div>
+                <div>
+                <?php foreach ( $data['data_distribusi'] as $design ) : ?>
+                    <?= $design['designator'] ?>(<?= $design['volume'] ?>)</br>
+                <?php endforeach; ?>
+                </div>
+                <div>
+                <?php foreach ( $data['data_dropcore'] as $design ) : ?>
+                    <?= $design['designator'] ?>(<?= $design['volume'] ?>)</br>
+                <?php endforeach; ?>
+                </div>  
+                <div>
+                <?php foreach ( $data['data_ikr'] as $design ) : ?>
+                    <?= $design['designator'] ?>(<?= $design['volume'] ?>)</br>
+                <?php endforeach; ?>
+                </div>
+            </div>
         </div>
     </div>
 

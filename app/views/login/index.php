@@ -14,7 +14,7 @@
     <div id="card">
         <div id="card-content">
         <div id="card-title">
-            <img src="<?= BASEURL;?>/img/logo-fa.png" alt="" width="150" heigth="150">
+            <img src="<?= BASEURL;?>/img/logo-baru.png" alt="" width="150" heigth="150">
             <h2>LOGIN</h2>
             <div class="underline-title"></div>
         </div>

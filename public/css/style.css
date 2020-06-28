@@ -403,9 +403,22 @@ div .CssUpdate {
     border-radius: 3px;
     padding: 15px 10px 15px 10px;
   }
+
   
   .mainPesan {
     width: 80%;
+    float: left;
+    background: #ffffff;
+    border: 0.5px solid #b6b2b2;
+    border-bottom: 0px;
+    color: #252525;
+    border-radius: 3px;
+    padding: 15px 10px 15px 10px;
+  }
+
+  .mainPesan2 {
+    height: 475px;
+    width: 100%;
     float: left;
     background: #ffffff;
     border: 0.5px solid #b6b2b2;
@@ -581,4 +594,33 @@ input[type=button]:hover {
     padding: 10px 19px 10px 5px;
     border: 0.5px solid #505050;
 }
+
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 0px;
+    height: 100%; 
+  }
   
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .grid-container1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #109fca;
+    padding: 10px;
+  }
+  
+  .grid-container1 > div {
+    background-color: #ffffffcc;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }

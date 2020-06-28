@@ -2,9 +2,9 @@
 
 class Pengguna extends Controller {
 	public function __construct(){
-		// if(!isset($_SESSION["username"]))  {  
-		// 	header('Location: ' . BASEURL . '/login/index');  
-		// }	
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}	
 	}
 
     public function index() {
@@ -26,6 +26,7 @@ class Pengguna extends Controller {
 		$data['judul'] = 'Profile';
 		$data['sub_judul'] = 'Ubah Data Profile';
 		$data['data_pengguna'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_pengguna',$id_table = 'nik', $id);
+		$data['data_pesan'] = $this->model('DataHandle')->getPesanMasuk($table = 'tbl_pesan', $id_table = 'nik_penerima', $id=$id, $orderBy='tgl_kirim');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('pengguna/v_detil_profile', $data);
@@ -66,26 +67,37 @@ class Pengguna extends Controller {
 		}
 	}
 
-	public function hapus($id) {
-		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_pengguna', $id_table = 'nik') > 0) {
-			Flasher::setFlash('Berhasil','dihapus','CssHapus');
+	public function hapus($id, $role) {
+		if($_SESSION["nik"] == $id || $role == 'Admin') {
 			header('Location: ' . BASEURL . '/pengguna/index');
-			exit;
+			Flasher::setFlash('Pengguna dengan role admin','tidak dapat dihapus','CssHapus');
 		} else {
-			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
-			header('Location: ' . BASEURL . '/pengguna/index');
-			exit;
+			if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_pengguna', $id_table = 'nik') > 0) {
+				Flasher::setFlash('Berhasil','dihapus','CssHapus');
+				header('Location: ' . BASEURL . '/pengguna/index');
+				exit;
+			} else {
+				Flasher::setFlash('Gagal','ditambahkan','CssHapus');
+				header('Location: ' . BASEURL . '/pengguna/index');
+				exit;
+			}	
 		}
 	}
  
-	public function getUbah($id){
-		$data['judul'] = 'Pengguna';
-		$data['sub_judul'] = 'Ubah Data Pengguna';
-		$data['data_pengguna'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_pengguna',$id_table = 'nik', $id);
-		$this->view('templates/header', $data);
-		$this->view('templates/sidebar', $data);
-		$this->view('pengguna/v_ubah_pengguna', $data);
-		$this->view('templates/footer');
+	public function getUbah($id, $role){
+		if($role == 'Admin') {
+			header('Location: ' . BASEURL . '/pengguna/index');
+			Flasher::setFlash('Pengguna dengan role admin','tidak dapat diubah','CssHapus');
+		} else {
+			$data['judul'] = 'Pengguna';
+			$data['sub_judul'] = 'Ubah Data Pengguna';
+			$data['data_pengguna'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_pengguna',$id_table = 'nik', $id);
+			$this->view('templates/header', $data);
+			$this->view('templates/sidebar', $data);
+			$this->view('pengguna/v_ubah_pengguna', $data);
+			$this->view('templates/footer');
+		}
+		
 	}
 	
 	public function ubahData() {

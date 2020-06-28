@@ -11,7 +11,7 @@ class Validasi extends Controller {
 		$data['judul'] = 'Validasi Pengetahuan';
         $data['sub_judul'] = 'Data Validasi Berkas dan Project OSP FO';
         $data['data_berkas'] = $this->model('DataHandle')->getAllById($table='tbl_berkas', $id_table='status', $id='NEED APPROVE');
-        $data['data_design'] = $this->model('DataHandle')->getAllById($table='tbl_project', $id_table='sts', $id='BELUM VALIDASI');
+        $data['data_design'] = $this->model('DataHandle')->getAllById($table='tbl_project', $id_table='sts', $id='BUTUH VALIDASI');
 
         $this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);

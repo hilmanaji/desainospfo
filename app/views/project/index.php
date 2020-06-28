@@ -8,7 +8,13 @@
     <div class="navigasi">
         <?php Flasher::flash(); ?>
         <form action="">
-            <a href="<?= BASEURL; ?>/Project/tambahData">Tambah Data</a>
+                        <?php
+                        if ($_SESSION["role_user"] == 'Admin' || $_SESSION["role_user"] == 'Pakar') { ?>
+                        <a href="<?= BASEURL; ?>/Project/tambahData">Tambah Data</a>
+                        <?php }
+                        else { ?>
+
+                        <?php } ?>
             <select id="optionFilter"" name="optionFilter">
                 <option value="1">ID PROJECT</option>
                 <option value="2">NAMA DESAIN</option>
